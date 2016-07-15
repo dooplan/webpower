@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #from zeep import Client
-from suds import Client
+from suds.client import Client
 
 from .conf import *
 from .exceptions import *
