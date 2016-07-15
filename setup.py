@@ -7,7 +7,7 @@ setup(
     url='http://github.com/dooplan/webpower/',
     license='GNU General Public License v3.0',
     author='Pasqual Guerrero',
-    install_requires=['zeep'],
+    install_requires=['suds'],
     author_email='pasqual.guerrero@gmail.com',
     description='Python wrapper around WebPower SOAP-v4.2 API',
     packages=find_packages(),

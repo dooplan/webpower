@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from zeep import Client
+#from zeep import Client
 
 from .conf import *
 from .exceptions import *
@@ -10,13 +10,13 @@ class WebPowerClient(object):
 
         self.client = Client(wsdl=wsdl)
 
-        self.login = self.client.get_type('ns0:DMdeliveryLoginType')(username, password)
+        self.login = self.factory.create('ns0:WebpowerLoginType')
 
     def addEventAttendee(self, login, campaignID, eventID, recipientData, status):
         '''
         Add or update an attendee for a specified event.
         Returns: original attendee data with extra fields eventResponse
-            and eventMessage.
+           and eventMessage.
         '''
         raise NotImplementedError
 
@@ -423,8 +423,8 @@ class WebPowerClient(object):
         raise NotImplementedError
 
     def sendMailing(self, login, campaignID, mailingID, isTest, resultsEmail,
-            groupIDs, filterIDs, langs, ADprefixDomains, callbackUrl=None,
-            excludedGroupIDs):
+            groupIDs, filterIDs, langs, ADprefixDomains, excludedGroupIDs,
+            callbackUrl=None,):
         '''
         Bulk-send a mailing.
         Required credentials: access to area 'Send mailing'
@@ -434,8 +434,8 @@ class WebPowerClient(object):
 
     def sendMailingScheduled(self, login, campaignID, mailingID, sendDate,
             isTest, resultsEmail, groupIDs, filterIDs, ADprefixDomains,
-            callbackUrl=None, approvalDMDgid, approvalPeriod, approvalAck,
-            approvalNack, excludedGroupIDs ):
+            approvalDMDgid, approvalPeriod, approvalAck, approvalNack,
+            excludedGroupIDs, callbackUrl=None, ):
         '''
         Bulk-send a mailing at a later date/time, optionally using approval procedure.
         Required credentials: access to area 'Send mailing'
