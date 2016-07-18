@@ -2,8 +2,8 @@ from __future__ import print_function
 from setuptools import setup, find_packages
 
 setup(
-    name='webpower',
-    version='0.1',
+    name='webpowerpy',
+    version='0.2',
     url='http://github.com/dooplan/webpower/',
     license='GNU General Public License v3.0',
     author='Pasqual Guerrero',
