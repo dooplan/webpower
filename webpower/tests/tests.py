@@ -3,16 +3,19 @@ from unittest import TestCase, TestSuite, TextTestRunner
 
 from webpower.client import *
 
+try:
+    from webpower.tests.test_conf import WSDL, USERNAME, PASSWORD
+except ImportError:
+    WSDL, PASSWORD, USERNAME = '','',''
+    pass
+
 class WebpowerTest(TestCase):
 
     campaign_id = 178
     groups = [83]
 
     def setUp(self):
-        wsdl = 'https://sedemo.dmdelivery.com/x/soap-v5.1/wsdl.php'
-        username = 'p.guerrero'
-        password = 'Dooplan123!'
-        self.client = WebPowerClient(wsdl, username, password)
+        self.client = WebPowerClient(WSDL, USERNAME, PASSWORD)
 
     def addRecipient_test(self,):
         print '*addRecipient_test:'

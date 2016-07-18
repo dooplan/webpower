@@ -1,2 +1,2 @@
 # webpowerpy
-Python wrapper around WebPower SOAP-v4.2 API
+Python wrapper around WebPower SOAP-v5.1 API
