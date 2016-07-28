@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='webpowerpy',
-    version='0.3',
+    version='0.4',
     url='http://github.com/dooplan/webpower/',
     license='GNU General Public License v3.0',
     author='Pasqual Guerrero',

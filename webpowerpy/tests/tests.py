@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from unittest import TestCase, TestSuite, TextTestRunner
 
-from webpower.client import *
+from webpowerpy.client import *
 
 try:
     from webpower.tests.test_conf import WSDL, USERNAME, PASSWORD
@@ -86,9 +86,13 @@ class WebpowerTest(TestCase):
 def suite():
     tests = ['addRecipient_test','addRecipients_test','editRecipient_test',
     'getRecipientFields_test']
+
     return TestSuite(map(WebpowerTest, tests))
 
 if __name__ == '__main__':
+
     runner = TextTestRunner()
+
     test_suite = suite()
+
     runner.run(test_suite)

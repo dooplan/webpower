@@ -380,13 +380,28 @@ class WebPowerClient(object):
         raise NotImplementedError
 
     def getRecipientsFromGroup(self, campaignID, fields, inGroupID,
-            fromDate, mailingIDs, filterID):
+            fromDate, filterID, mailingIDs=[]):
         '''
+        campaignID: int
+        fields: ['name','email',..]
+        inGroupId: int
+        fromDate: date
+        filterID: database_id (int)
+
         Retrieve recipients from a specific DMdelivery group.
         Required credentials: 'export' privilege for area 'Recipients'
         Returns:  An array of recipients.
         '''
-        raise NotImplementedError
+        #Append all recieved field on new complex type structure
+        array = self.client.factory.create('ns0:ArrayOfStringType')
+        for field in fields:
+            array.string.append(field)
+
+        from_date = fromDate.strftime('%Y-%m-%d')
+        result = self.client.service.getRecipientsFromGroup(self.login,
+            campaignID, array, inGroupID, from_date, mailingIDs, filterID)
+
+        return result
 
     def getSenderAddresses(self, ):
         '''
